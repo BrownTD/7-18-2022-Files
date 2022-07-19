@@ -1,0 +1,43 @@
+#:kivy !
+onLanguage: kivy
+from kivy.uix.image import Image
+from kivy.uix.button import Button
+from kivy.uix.textinput import TextInput
+from kivy.uix.widget import Widget       
+
+class Homies(App):
+    def build(self):
+        self.window.cols = 1
+        self.window.size_hint= (0.6, 0.7)
+        self.window.pos_hint = {"center_x": 0.5, "center_y": 0.5}
+        
+
+        #add widgets to window
+
+        #image widget
+        self.window.add_widget(Image(source="logo.png", size_hint=(5,5)))
+        #Lable Widget
+        self.greeting = Label(text="The App for Gifting our Less Fortunate Friends", font_size= 16, color="#E8BEAC")
+        self.window.add_widget(self.greeting)
+        
+        #text input user
+        self.user=TextInput(multiline=False, padding_y= (20,20), size_hint=(1, 0.5))
+        self.window.add_widget(self.user)
+        #button widget
+        self.button=Button(text="Let the Homies know your Name",
+        size_hint=(1,0.5),
+        bold = True,
+        )
+        self.button.bind(on_press = self.callback)
+        self.window.add_widget(self.button)
+        self.getstarted = Label(text="Swipe up to Begin")
+        self.window.add_widget(self.getstarted)
+        return self.window
+
+    def callback(self, instance):
+        self.greeting.text = "Hey " + self.user.text + ", how's it going!"
+    
+
+
+if __name__ == "__main__":
+    Homies().run()
