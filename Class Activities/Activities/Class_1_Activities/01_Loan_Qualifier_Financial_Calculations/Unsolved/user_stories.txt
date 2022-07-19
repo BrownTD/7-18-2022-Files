@@ -1,0 +1,17 @@
+User stories:
+
+* As a lender, I want to calculate the monthly debt-to-income ratio so that we can assess the borrower's ability to repay the loan.
+DTI= total_debt/GMI
+  * Given that I want to calculate the monthly debt-to-income ratio, when the monthly debt is less than zero or the monthly income is equal to or less than zero, then the application should raise an error.
+if total_debt<0
+  print(error)
+if GMI<=0
+  print(error)
+
+* As a lender, I want to calculate the loan-to-value ratio so that we can evaluate the risk of lending money to the borrower.
+LTV= loan_amount/asset_value
+  * Given that I want to calculate the loan-to-value ratio, when the loan amount or the home value are equal to zero, then the application should raise an error.
+if loan_amount==0
+  print(error)
+if asset_value==0
+  print(error)
